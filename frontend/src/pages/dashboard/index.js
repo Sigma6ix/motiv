@@ -70,6 +70,7 @@ const Dashboard = props => {
         <CardNavigationCenter />
       </Grid>
     </Grid>
+    <SurveyFormOne/>
     </>
   )
 }
