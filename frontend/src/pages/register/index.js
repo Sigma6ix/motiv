@@ -148,7 +148,7 @@ const Register = () => {
                   />
                 )}
               />
-              {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
+              {errors.email && <FormHelperText sx={{ color: 'error.main' }}>Please enter a valid email</FormHelperText>}
             </FormControl>
             <FormControl fullWidth sx={{ mb: 4 }}>
               <InputLabel htmlFor='auth-login-v2-password' error={Boolean(errors.password)}>
