@@ -21,22 +21,22 @@ const CardNavigationCenter = () => {
 
   return (
     <Card>
-      <TabContext value={value}>
-        <TabList centered onChange={handleChange} aria-label='card navigation example'>
-          <Tab value='1' label='Item One' />
-          <Tab value='2' label='Item Two' />
-          <Tab value='3' label='Item Three' />
-        </TabList>
+      <TabContext  value={value}>
+        <Typography sx={{ textAlign: 'center', mb: 2, mt: 3 }} variant='h6'>
+              Diversity Question1
+            </Typography>
         <CardContent sx={{ textAlign: 'center' }}>
           <TabPanel value='1' sx={{ p: 0 }}>
-            <Typography variant='h6' sx={{ mb: 2 }}>
+            {/* <Typography variant='h6' sx={{ mb: 2 }}>
               Header One
-            </Typography>
-            <Typography variant='body2' sx={{ mb: 4 }}>
+            </Typography> */}
+            <Typography variant='body2' sx={{ mb: 8, mt: 2 }}>
               Pudding tiramisu caramels. Gingerbread gummies danish chocolate bar toffee marzipan. Wafer wafer cake
               powder danish oat cake.
             </Typography>
-            <Button variant='contained'>Button One</Button>
+            <a href="#">
+            <Button variant='contained'>Start Survey</Button>
+            </a>
           </TabPanel>
           <TabPanel value='2' sx={{ p: 0 }}>
             <Typography variant='h6' sx={{ mb: 2 }}>
