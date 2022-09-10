@@ -21,10 +21,10 @@ const CardNavigationCenter = () => {
 
   return (
     <Card>
-      <TabContext  value={value}>
+      <TabContext value={value}>
         <Typography sx={{ textAlign: 'center', mb: 2, mt: 3 }} variant='h6'>
-              Diversity Question1
-            </Typography>
+          Diversity Question1
+        </Typography>
         <CardContent sx={{ textAlign: 'center' }}>
           <TabPanel value='1' sx={{ p: 0 }}>
             {/* <Typography variant='h6' sx={{ mb: 2 }}>
@@ -34,8 +34,8 @@ const CardNavigationCenter = () => {
               Pudding tiramisu caramels. Gingerbread gummies danish chocolate bar toffee marzipan. Wafer wafer cake
               powder danish oat cake.
             </Typography>
-            <a href="#">
-            <Button variant='contained'>Start Survey</Button>
+            <a href='diversity'>
+              <Button variant='contained'>Start Survey</Button>
             </a>
           </TabPanel>
           <TabPanel value='2' sx={{ p: 0 }}>
