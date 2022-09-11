@@ -1,8 +1,10 @@
 import styled from "styled-components";
 // import { Box, Heading, Button, Paragraph } from "../styles";
+
 import  Box  from "./box.js"
 import { Heading, Paragraph } from "./typography.js"
 import {Button} from "./button.js"
+
 
 const Hero = styled(Box)`
   padding-top: 125px;

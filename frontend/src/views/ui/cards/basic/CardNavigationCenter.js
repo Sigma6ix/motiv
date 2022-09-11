@@ -13,7 +13,7 @@ import CardContent from '@mui/material/CardContent'
 
 const CardNavigationCenter = () => {
   // ** State
-  const [value, setValue] = useState('1')
+  const [value, setValue] = useState("1")
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -23,16 +23,12 @@ const CardNavigationCenter = () => {
     <Card>
       <TabContext value={value}>
         <Typography sx={{ textAlign: 'center', mb: 2, mt: 3 }} variant='h6'>
-          Diversity Question1
+          Diversity survey
         </Typography>
         <CardContent sx={{ textAlign: 'center' }}>
           <TabPanel value='1' sx={{ p: 0 }}>
-            {/* <Typography variant='h6' sx={{ mb: 2 }}>
-              Header One
-            </Typography> */}
             <Typography variant='body2' sx={{ mb: 8, mt: 2 }}>
-              Pudding tiramisu caramels. Gingerbread gummies danish chocolate bar toffee marzipan. Wafer wafer cake
-              powder danish oat cake.
+              The purpose of this survey is to understand what you as an empoyee value the most.
             </Typography>
             <a href='diversity'>
               <Button variant='contained'>Start Survey</Button>
@@ -40,23 +36,21 @@ const CardNavigationCenter = () => {
           </TabPanel>
           <TabPanel value='2' sx={{ p: 0 }}>
             <Typography variant='h6' sx={{ mb: 2 }}>
-              Header Two
+              Compensation survey
             </Typography>
             <Typography variant='body2' sx={{ mb: 4 }}>
-              Dragée chupa chups soufflé cheesecake jelly tootsie roll cupcake marzipan. Carrot cake sweet roll gummi
-              bears caramels jelly beans.
+            The purpose of this survey is to understand what you as an empoyee value the most.
             </Typography>
-            <Button variant='contained'>Button Two</Button>
+            <Button variant='contained'>Start Survey</Button>
           </TabPanel>
           <TabPanel value='3' sx={{ p: 0 }}>
             <Typography variant='h6' sx={{ mb: 2 }}>
-              Header Three
+              Inclusivity survey
             </Typography>
             <Typography variant='body2' sx={{ mb: 4 }}>
-              Icing cake macaroon macaroon jelly chocolate bar. Chupa chups dessert dessert soufflé chocolate bar
-              jujubes gummi bears lollipop.
+            The purpose of this survey is to understand what you as an empoyee value the most.
             </Typography>
-            <Button variant='contained'>Button Three</Button>
+            <Button variant='contained'>Start Survey</Button>
           </TabPanel>
         </CardContent>
       </TabContext>
