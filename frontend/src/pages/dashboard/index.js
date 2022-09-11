@@ -2,30 +2,10 @@
 import { useEffect, useState } from 'react'
 
 // ** MUI Imports
-import { FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from '@mui/material'
-import CardContent from '@mui/material/CardContent'
-import FormControl from '@mui/material/FormControl'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 
-// ** Auth Imports
-import { getLocalStorage } from 'src/hooks/helpers'
-
-// ** Third Party Imports
-import { yupResolver } from '@hookform/resolvers/yup'
-import { Controller, useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import axios from 'axios'
-import toast from 'react-hot-toast'
-import SurveyFormOne from '../../views/forms/form-wizard/SurveyFormOne'
-
-import StepperLinearWithValidation from '../../views/forms/form-wizard/StepperLinearWithValidation'
-
-// ** Demo Components Imports
-
-import CardNavigation from 'src/views/ui/cards/basic/CardNavigation'
 import CardNavigationCenter from 'src/views/ui/cards/basic/CardNavigationCenter'
-import CardHorizontalRatings from 'src/views/ui/cards/basic/CardHorizontalRatings'
 
 const Dashboard = props => {
   // const [scans, setScans] = useState()
@@ -71,7 +51,7 @@ const Dashboard = props => {
         <CardNavigationCenter />
       </Grid>
     </Grid>
-    
+
     </>
   )
 }
