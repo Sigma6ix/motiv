@@ -32,6 +32,7 @@ if ((process.env.NODE_ENV = "development")) {
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 
+
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`API is running on port ${port}`);

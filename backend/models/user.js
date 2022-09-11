@@ -11,6 +11,36 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
     },
+    leadership: {
+      type: Number,
+      required: false,
+      unique: false,
+    },
+    company_culture:{
+      type: Number,
+      required: false,
+      unique: false,
+    },
+    title_and_status:{
+      type: Number,
+      required: false,
+      unique: false,
+    },
+    compensation:{
+      type: Number,
+      required: false,
+      unique: false,
+    },
+    learning:{
+      type: Number,
+      required: false,
+      unique: false,
+    },
+    diversity:{
+      type: Number,
+      required: false,
+      unique: false,
+    },
     hashed_password: {
       type: String,
       required: true,
