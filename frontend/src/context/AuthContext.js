@@ -82,8 +82,9 @@ const AuthProvider = ({ children }) => {
           .then(async response => {
             setUser({ ...response.data.userData })
             await window.localStorage.setItem('userData', JSON.stringify(response.data.userData))
-            const redirectURL = response.data.userData.companyName === null ? '/onboarding' : '/'
+            const redirectURL = response.data.userData.firstName === null ? '/user-info' : '/'
             router.replace(redirectURL)
+            console.log(response.data.userData.firstName)
           })
       })
       .catch(err => {

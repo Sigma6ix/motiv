@@ -8,60 +8,61 @@ import CardContent from '@mui/material/CardContent'
 import { getLocalStorage } from 'src/hooks/helpers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import CardFinanceApp from 'src/views/ui/cards/advanced/CardFinanceApp'
+import CardTotalEarnings from 'src/views/ui/cards/advanced/CardTotalEarings'
 
 const Employees = () => {
-  const [employeeData, setEmployeeData] = useState([])
+  const [surveyData, setSurveyData] = useState([])
+  const [surveyResult, setSurveyResult] = useState([])
 
   // Tokenization for server request
   const storageChecked = getLocalStorage('accessToken')
-  const [scans, setScans] = useState()
 
   useEffect(() => {
-    numScans()
+    getSurveyData()
   }, [])
 
-  useEffect(() => {
-    getEmployeeData()
-  }, [])
-
-  const getEmployeeData = async () => {
+  const getSurveyData = async () => {
     const response = await axios({
       method: 'GET',
-      url: 'http://localhost:8000/api/employee/data',
+      url: 'http://localhost:8000/api/user/all-survey-result',
       headers: {
         Authorization: `Bearer ${storageChecked}`
       }
     })
     if (response.status === 200) {
-      setEmployeeData(response.data.result)
+      setSurveyData(response.data)
+      console.log(response.data)
     }
   }
 
-  const numScans = () => {
-    const options = {
-      method: 'GET',
-      url: 'https://api-ssl.bitly.com/v4/bitlinks/bit.ly/3yNQerc/clicks?unit=month&units=-1',
-      headers: {
-        Authorization: 'Bearer 78abfcf816e86d4ea229da6cc240b34b9938bced'
-      }
-    }
+  useEffect(() => {
+    getSurveyResult()
+  }, [])
 
-    axios
-      .request(options)
-      .then(response => {
-        console.log(response.data.link_clicks[0].clicks)
-        const allScans = response.data.link_clicks[0].clicks
-        setScans(allScans)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+  const getSurveyResult = async () => {
+    const response = await axios({
+      method: 'GET',
+      url: 'http://localhost:8000/api/user/survey-result',
+      headers: {
+        Authorization: `Bearer ${storageChecked}`
+      }
+    })
+    if (response.status === 200) {
+      setSurveyResult(response.data)
+      console.log(response.data)
+    }
   }
 
   return (
     <Grid container spacing={6}>
-      <Grid item xs={12}>
-        <TableFilter employeeData={employeeData} scans={scans} />
+      {/* <Grid item xs={4}>
+        {surveyData.forEach(surveyResult => {
+          return <CardTotalEarnings data={surveyResult} />
+        })}
+      </Grid> */}
+      <Grid item xs={4}>
+        <CardTotalEarnings surveyResult={surveyResult} />
       </Grid>
     </Grid>
   )

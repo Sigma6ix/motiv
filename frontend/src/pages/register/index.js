@@ -45,8 +45,7 @@ import { useAuth } from 'src/hooks/useAuth'
 const defaultValues = {
   email: '',
   password: '',
-  confirmPassword: '',
-  terms: false
+  confirmPassword: ''
 }
 
 // ** Styled Components
@@ -80,8 +79,7 @@ const Register = () => {
   const schema = yup.object().shape({
     password: yup.string().min(5).max(15).required(),
     email: yup.string().email().required(),
-    confirmPassword: yup.string().oneOf([yup.ref('password'), null]),
-    terms: yup.bool().oneOf([true], 'You must accept the privacy policy & terms')
+    confirmPassword: yup.string().oneOf([yup.ref('password'), null])
   })
 
   const {
@@ -122,7 +120,6 @@ const Register = () => {
       <Card sx={{ zIndex: 1 }}>
         <CardContent sx={{ p: theme => `${theme.spacing(15.5, 7, 6.5)} !important` }}>
           <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img width='60' height='60' alt='Github' src='/images/logos/ra-logo.png' style={{ marginRight: '7px' }} />
             <Typography variant='h6' sx={{ ml: 2, lineHeight: 1, fontWeight: 700, fontSize: '1.5rem !important' }}>
               {themeConfig.templateName}
             </Typography>
@@ -221,50 +218,6 @@ const Register = () => {
               )}
             </FormControl>
 
-            <FormControl sx={{ my: 0 }} error={Boolean(errors.terms)}>
-              <Controller
-                name='terms'
-                control={control}
-                rules={{ required: true }}
-                render={({ field: { value, onChange } }) => {
-                  return (
-                    <FormControlLabel
-                      sx={{
-                        ...(errors.terms ? { color: 'error.main' } : null),
-                        '& .MuiFormControlLabel-label': { fontSize: '0.875rem' }
-                      }}
-                      control={
-                        <Checkbox
-                          checked={value}
-                          onChange={onChange}
-                          sx={errors.terms ? { color: 'error.main' } : null}
-                        />
-                      }
-                      label={
-                        <Fragment>
-                          <Typography variant='body2' component='span' sx={{ color: errors.terms ? 'error.main' : '' }}>
-                            I agree to{' '}
-                          </Typography>
-                          <Link href='/' passHref>
-                            <Typography
-                              variant='body2'
-                              component={MuiLink}
-                              sx={{ color: 'primary.main' }}
-                              onClick={e => e.preventDefault()}
-                            >
-                              privacy policy & terms
-                            </Typography>
-                          </Link>
-                        </Fragment>
-                      }
-                    />
-                  )
-                }}
-              />
-              {errors.terms && (
-                <FormHelperText sx={{ mt: 0, color: 'error.main' }}>{errors.terms.message}</FormHelperText>
-              )}
-            </FormControl>
             <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
               Sign up
             </Button>

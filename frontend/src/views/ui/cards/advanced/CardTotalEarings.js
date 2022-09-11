@@ -11,32 +11,52 @@ import LinearProgress from '@mui/material/LinearProgress'
 import MenuUp from 'mdi-material-ui/MenuUp'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
 
-const data = [
-  {
-    progress: 75,
-    title: 'Amazon',
-    color: 'primary',
-    amount: '$24,453'
-  },
-  {
-    progress: 59,
-    color: 'success',
-    title: 'Flipkart',
-    amount: '$12,763'
-  },
-  {
-    progress: 20,
-    title: 'eBay',
-    color: 'error',
-    amount: '$4,978'
-  }
-]
+const CardTotalEarnings = ({ surveyResult }) => {
+  console.log(surveyResult)
 
-const CardTotalEarnings = () => {
+  const data = [
+    {
+      progress: surveyResult.company_culture,
+      title: 'Company Culture',
+      color: 'primary',
+      amount: `${surveyResult.company_culture}%`
+    },
+    {
+      progress: surveyResult.title_and_status,
+      color: 'primary',
+      title: 'Title & Status',
+      amount: `${surveyResult.title_and_status}%`
+    },
+    {
+      progress: surveyResult.compensation,
+      title: 'Compensation',
+      color: 'primary',
+      amount: `${surveyResult.compensation}%`
+    },
+    {
+      progress: surveyResult.leadership,
+      title: 'Leadership',
+      color: 'primary',
+      amount: `${surveyResult.leadership}%`
+    },
+    {
+      progress: surveyResult.learning,
+      title: 'Learning',
+      color: 'primary',
+      amount: `${surveyResult.learning}%`
+    },
+    {
+      progress: surveyResult.diversity,
+      title: 'Diversity',
+      color: 'primary',
+      amount: `${surveyResult.diversity}%`
+    }
+  ]
+
   return (
     <Card>
       <CardHeader
-        title='Total Earning'
+        title='Diversity Survey'
         titleTypographyProps={{ sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' } }}
         action={
           <IconButton size='small' aria-label='settings' className='card-more-options'>
@@ -46,17 +66,13 @@ const CardTotalEarnings = () => {
       />
       <CardContent sx={{ pt: theme => `${theme.spacing(2.5)} !important` }}>
         <Box sx={{ mb: 0.5, display: 'flex', alignItems: 'center' }}>
-          <Typography variant='h4' sx={{ mr: 0.5 }}>
-            $42,880
-          </Typography>
-          <MenuUp sx={{ mr: 0.5, fontSize: '1.875rem', color: 'success.main' }} />
-          <Typography variant='body2' sx={{ fontWeight: 600, color: 'success.main' }}>
-            22%
+          <Typography variant='h5' sx={{ mr: 0.5 }}>
+            Employee Name
           </Typography>
         </Box>
 
         <Typography component='p' variant='caption' sx={{ mb: 7.5 }}>
-          Compared to $84,325 last year
+          Survey Taken: Sun, Sept 11, 2022
         </Typography>
 
         {data.map((item, index) => {

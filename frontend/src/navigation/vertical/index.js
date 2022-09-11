@@ -25,20 +25,6 @@ const navigation = () => {
       title: 'Profile',
       icon: AccountCircleRoundedIcon,
       path: '/profile'
-    },
-    {
-      title: 'Access Control',
-      icon: AdminPanelSettingsRoundedIcon,
-      path: '/acl',
-      action: 'read',
-      subject: 'acl-page'
-    },
-    {
-      title: 'Settings',
-      icon: SettingsRoundedIcon,
-      path: '/account-settings',
-      action: 'manage',
-      subject: 'settings-page'
     }
   ]
 }

@@ -106,23 +106,15 @@ const LoginPage = () => {
       <Card sx={{ zIndex: 1 }}>
         <CardContent sx={{ p: theme => `${theme.spacing(13, 7, 6.5)} !important` }}>
           <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img width='60' height='30' alt='Github' src='/images/logos/Logo-TO.png' style={{ marginRight: '7px' }} />
             <Typography variant='h6' sx={{ ml: 2, lineHeight: 1, fontWeight: 700, fontSize: '1.5rem !important' }}>
               {themeConfig.templateName}
             </Typography>
           </Box>
           <Box sx={{ mb: 6 }}>
-            <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
+            <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName} 👋🏻`}</TypographyStyled>
             <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
           </Box>
-          <Alert icon={false} sx={{ py: 3, mb: 6, ...bgClasses.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
-            <Typography variant='caption' sx={{ mb: 2, display: 'block', color: 'primary.main' }}>
-              Admin: <strong>admin@materialize.com</strong> / Pass: <strong>admin</strong>
-            </Typography>
-            <Typography variant='caption' sx={{ display: 'block', color: 'primary.main' }}>
-              Client: <strong>client@materialize.com</strong> / Pass: <strong>client</strong>
-            </Typography>
-          </Alert>
+
           <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
             <FormControl fullWidth sx={{ mb: 4 }}>
               <Controller
@@ -180,21 +172,8 @@ const LoginPage = () => {
                 </FormHelperText>
               )}
             </FormControl>
-            <Box
-              sx={{ mb: 4, display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}
-            >
-              <FormControlLabel
-                label='Remember Me'
-                control={<Checkbox />}
-                sx={{ '& .MuiFormControlLabel-label': { color: 'text.primary' } }}
-              />
-              <Link passHref href='/forgot-password'>
-                <Typography component={MuiLink} variant='body2' sx={{ color: 'primary.main' }}>
-                  Forgot Password?
-                </Typography>
-              </Link>
-            </Box>
-            <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
+
+            <Button fullWidth size='large' type='submit' variant='contained' sx={{ my: 7 }}>
               Login
             </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>

@@ -45,7 +45,7 @@ const UserDropdown = props => {
 
   // ** Hooks
   const router = useRouter()
-  const { logout } = useAuth()
+  const { logout, auth } = useAuth()
 
   // ** Vars
   const { direction } = settings
@@ -92,12 +92,7 @@ const UserDropdown = props => {
           horizontal: 'right'
         }}
       >
-        <Avatar
-          onClick={handleDropdownOpen}
-          sx={{ width: 40, height: 40 }}
-          alt={isAuth().companyName}
-          src={isAuth().photoURL}
-        />
+        <Avatar onClick={handleDropdownOpen} sx={{ width: 40, height: 40 }} alt={''} src={isAuth().photoURL} />
       </Badge>
       <Menu
         anchorEl={anchorEl}
@@ -123,7 +118,7 @@ const UserDropdown = props => {
                 horizontal: 'right'
               }}
             >
-              <Avatar alt={isAuth().companyName} src={isAuth().photoURL} sx={{ width: '2.5rem', height: '2.5rem' }} />
+              <Avatar alt={isAuth().firstName} src={isAuth().photoURL} sx={{ width: '2.5rem', height: '2.5rem' }} />
             </Badge>
             <Box
               sx={{
@@ -133,7 +128,7 @@ const UserDropdown = props => {
                 flexDirection: 'column'
               }}
             >
-              <Typography sx={{ fontWeight: 600 }}>{isAuth().companyName}</Typography>
+              <Typography sx={{ fontWeight: 600 }}>{isAuth().firstName}</Typography>
               <Typography variant='body2' sx={{ fontSize: '0.8rem', color: 'text.disabled' }}>
                 {isAuth().role}
               </Typography>
@@ -141,24 +136,7 @@ const UserDropdown = props => {
           </Box>
         </Box>
         <Divider sx={{ mt: 0, mb: 1 }} />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <AccountOutline sx={{ marginRight: 2 }} />
-            Profile
-          </Box>
-        </MenuItem>
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <CogOutline sx={{ marginRight: 2 }} />
-            Settings
-          </Box>
-        </MenuItem>
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <HelpCircleOutline sx={{ marginRight: 2 }} />
-            FAQ
-          </Box>
-        </MenuItem>
+
         <MenuItem sx={{ py: 2 }} onClick={handleLogout}>
           <LogoutVariant
             sx={{
