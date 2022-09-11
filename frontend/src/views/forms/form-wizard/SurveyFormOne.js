@@ -59,16 +59,14 @@ const steps = [
   },
   {
     title: 'Question 4'
-  },
-  {
-    title: 'Question 5'
   }
 ]
 
 const defaultValues = {
   question1: '',
   question2: '',
-  question3: ''
+  question3: '',
+  question4: ''
 }
 
 const SurveyFormOne = () => {
@@ -117,15 +115,12 @@ const SurveyFormOne = () => {
 
   // Handle form submit
   const onSubmit = async data => {
-    const { question1, question2, question3 } = data
+    const { question1, question2, question3, question4 } = data
+    console.log(data)
     axios({
       method: 'PUT',
-      url: 'http://localhost:8000/api/user/update',
-      data: {
-        question1,
-        question2,
-        question3
-      },
+      url: 'http://localhost:8000/api/user/submit-survey',
+      data: [{ answer: question1 }, { answer: question2 }, { answer: question3 }, { answer: question4 }],
       headers: {
         Authorization: `Bearer ${storageChecked}`
       }
@@ -155,7 +150,9 @@ const SurveyFormOne = () => {
           <Fragment>
             <Grid item xs={12} sm={12}>
               <FormControl sx={{ padding: '10px' }}>
-                <FormLabel id='demo-radio-buttons-group-label'>What racial/ethnic groups do you belong to?</FormLabel>
+                <FormLabel id='demo-radio-buttons-group-label'>
+                  How would you assist your co-worker who has difficulty in hearing?
+                </FormLabel>
                 <Controller
                   name='question1'
                   control={control}
@@ -171,13 +168,32 @@ const SurveyFormOne = () => {
                       name='radio-buttons-group'
                       sx={{ padding: '20px' }}
                     >
-                      <FormControlLabel value={'CC'} control={<Radio />} label='Option 1' />
-                      <FormControlLabel value={'LH'} control={<Radio />} label='Option 2' />
-                      <FormControlLabel value={'TC'} control={<Radio />} label='Option 3' />
-                      <FormControlLabel value={'C'} control={<Radio />} label='Option 4' />
-                      <FormControlLabel value={'L'} control={<Radio />} label='Option 5' />
-                      <FormControlLabel value={'D'} control={<Radio />} label='Option 6' />
-                      <FormControlLabel value={'LH'} control={<Radio />} label='Option 7' />
+                      <FormControlLabel
+                        value={'CC'}
+                        control={<Radio />}
+                        label='If it is a part of our company culture'
+                      />
+                      <FormControlLabel
+                        value={'TS'}
+                        control={<Radio />}
+                        label='Only if it contributes to my promotion'
+                      />
+                      <FormControlLabel value={'C'} control={<Radio />} label='Only if I get a bonus' />
+                      <FormControlLabel
+                        value={'L'}
+                        control={<Radio />}
+                        label='I would like to learn more about this and how I can help them'
+                      />
+                      <FormControlLabel
+                        value={'D'}
+                        control={<Radio />}
+                        label='I will include other teammate to get their opinion on this matter'
+                      />
+                      <FormControlLabel
+                        value={'LH'}
+                        control={<Radio />}
+                        label='Not only I will assist my co-worker but I would also ask other to do the same'
+                      />
                     </RadioGroup>
                   )}
                 />
@@ -194,7 +210,8 @@ const SurveyFormOne = () => {
             <Grid item xs={12} sm={12}>
               <FormControl sx={{ padding: '10px' }}>
                 <FormLabel id='demo-radio-buttons-group-label'>
-                  How do you describe your gender identity? Select all that apply.
+                  Your female co-worker is in bloody mary period, having menstrual cramps and cannot finish work by
+                  deadline, what would you do in the situation?
                 </FormLabel>
                 <Controller
                   name='question2'
@@ -211,11 +228,32 @@ const SurveyFormOne = () => {
                       name='radio-buttons-group'
                       sx={{ padding: '20px' }}
                     >
-                      <FormControlLabel value={'CC'} control={<Radio />} label='Male' />
-                      <FormControlLabel value={'2'} control={<Radio />} label='Female' />
-                      <FormControlLabel value={'3'} control={<Radio />} label='Non-binary' />
-                      <FormControlLabel value={'4'} control={<Radio />} label='Transgender' />
-                      <FormControlLabel value={'5'} control={<Radio />} label='I prefer not to say' />
+                      <FormControlLabel
+                        value={'CC'}
+                        control={<Radio />}
+                        label='A part of our company culture is to help ...'
+                      />
+                      <FormControlLabel
+                        value={'TS'}
+                        control={<Radio />}
+                        label='Only if it contributes to my promotion'
+                      />
+                      <FormControlLabel value={'C'} control={<Radio />} label='Only if I get a bonus' />
+                      <FormControlLabel
+                        value={'L'}
+                        control={<Radio />}
+                        label='I would like to learn more about this and how I can help them'
+                      />
+                      <FormControlLabel
+                        value={'D'}
+                        control={<Radio />}
+                        label='I will include other teammate to get their opinion on this matter'
+                      />
+                      <FormControlLabel
+                        value={'LH'}
+                        control={<Radio />}
+                        label='Not only I will assist my co-worker but I would also ask other to do the same'
+                      />
                     </RadioGroup>
                   )}
                 />
@@ -232,7 +270,9 @@ const SurveyFormOne = () => {
             <Grid item xs={12} sm={12}>
               <FormControl sx={{ padding: '10px' }}>
                 <FormLabel id='demo-radio-buttons-group-label'>
-                  Do you identify as a person with a disability or are you a person with accessibility needs?
+                  Today is Tet Nguyen Dan or Lunar New Year, your team has an important meeting where you decide the
+                  company future but your co-worker need to be with their family as it is a cultural tradition, how
+                  would you handle the situation?
                 </FormLabel>
                 <Controller
                   name='question3'
@@ -249,12 +289,28 @@ const SurveyFormOne = () => {
                       name='radio-buttons-group'
                       sx={{ padding: '20px' }}
                     >
-                      <FormControlLabel value={'1'} control={<Radio />} label='Option 1' />
-                      <FormControlLabel value={'2'} control={<Radio />} label='Option 2' />
-                      <FormControlLabel value={'3'} control={<Radio />} label='Option 3' />
-                      <FormControlLabel value={'4'} control={<Radio />} label='Option 4' />
-                      <FormControlLabel value={'5'} control={<Radio />} label='Option 5' />
-                      <FormControlLabel value={'6'} control={<Radio />} label='Option 6' />
+                      <FormControlLabel value={'CC'} control={<Radio />} label='A part of our company culture...' />
+                      <FormControlLabel
+                        value={'TS'}
+                        control={<Radio />}
+                        label='Only if it contributes to my promotion'
+                      />
+                      <FormControlLabel value={'C'} control={<Radio />} label='Only if I get a bonus' />
+                      <FormControlLabel
+                        value={'L'}
+                        control={<Radio />}
+                        label='I would like to learn more about this and how I can help them'
+                      />
+                      <FormControlLabel
+                        value={'D'}
+                        control={<Radio />}
+                        label='I will include other teammate to get their opinion on this matter'
+                      />
+                      <FormControlLabel
+                        value={'LH'}
+                        control={<Radio />}
+                        label='Not only I will assist my co-worker but I would also ask other to do the same'
+                      />
                     </RadioGroup>
                   )}
                 />
@@ -271,10 +327,10 @@ const SurveyFormOne = () => {
             <Grid item xs={12} sm={12}>
               <FormControl sx={{ padding: '10px' }}>
                 <FormLabel id='demo-radio-buttons-group-label'>
-                  Do you identify as a person with a disability or are you a person with accessibility needs?
+                  How would you help a co-worker who just comeback from maternity leave to get back on her feet?
                 </FormLabel>
                 <Controller
-                  name='question3'
+                  name='question4'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
@@ -288,56 +344,33 @@ const SurveyFormOne = () => {
                       name='radio-buttons-group'
                       sx={{ padding: '20px' }}
                     >
-                      <FormControlLabel value={'1'} control={<Radio />} label='Option 1' />
-                      <FormControlLabel value={'2'} control={<Radio />} label='Option 2' />
-                      <FormControlLabel value={'3'} control={<Radio />} label='Option 3' />
-                      <FormControlLabel value={'4'} control={<Radio />} label='Option 4' />
-                      <FormControlLabel value={'5'} control={<Radio />} label='Option 5' />
-                      <FormControlLabel value={'6'} control={<Radio />} label='Option 6' />
+                      <FormControlLabel value={'CC'} control={<Radio />} label='A part of our company culture is ...' />
+                      <FormControlLabel
+                        value={'TS'}
+                        control={<Radio />}
+                        label='Only if it contributes to my promotion'
+                      />
+                      <FormControlLabel value={'C'} control={<Radio />} label='Only if I get a bonus' />
+                      <FormControlLabel
+                        value={'L'}
+                        control={<Radio />}
+                        label='I would like to learn more about this and how I can help them'
+                      />
+                      <FormControlLabel
+                        value={'D'}
+                        control={<Radio />}
+                        label='I will include other teammate to get their opinion on this matter'
+                      />
+                      <FormControlLabel
+                        value={'LH'}
+                        control={<Radio />}
+                        label='Not only I will assist my co-worker but I would also ask other to do the same'
+                      />
                     </RadioGroup>
                   )}
                 />
-                {errors.question3 && (
-                  <FormHelperText sx={{ color: 'error.main' }}>{errors.question3.message}</FormHelperText>
-                )}
-              </FormControl>
-            </Grid>
-          </Fragment>
-        )
-      case 4:
-        return (
-          <Fragment key={step}>
-            <Grid item xs={12} sm={12}>
-              <FormControl sx={{ padding: '10px' }}>
-                <FormLabel id='demo-radio-buttons-group-label'>
-                  Do you identify as a person with a disability or are you a person with accessibility needs?
-                </FormLabel>
-                <Controller
-                  name='question3'
-                  control={control}
-                  rules={{ required: true }}
-                  render={({ field: { value, onChange, onBlur } }) => (
-                    <RadioGroup
-                      value={value}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      error={Boolean(errors.question3)}
-                      aria-labelledby='demo-radio-buttons-group-label'
-                      defaultValue='female'
-                      name='radio-buttons-group'
-                      sx={{ padding: '20px' }}
-                    >
-                      <FormControlLabel value={'1'} control={<Radio />} label='Option 1' />
-                      <FormControlLabel value={'2'} control={<Radio />} label='Option 2' />
-                      <FormControlLabel value={'3'} control={<Radio />} label='Option 3' />
-                      <FormControlLabel value={'4'} control={<Radio />} label='Option 4' />
-                      <FormControlLabel value={'5'} control={<Radio />} label='Option 5' />
-                      <FormControlLabel value={'6'} control={<Radio />} label='Option 6' />
-                    </RadioGroup>
-                  )}
-                />
-                {errors.question3 && (
-                  <FormHelperText sx={{ color: 'error.main' }}>{errors.question3.message}</FormHelperText>
+                {errors.question4 && (
+                  <FormHelperText sx={{ color: 'error.main' }}>{errors.question4.message}</FormHelperText>
                 )}
               </FormControl>
             </Grid>
@@ -390,7 +423,7 @@ const SurveyFormOne = () => {
                 </Button>
               )} */}
               <Box>
-                <Button sx={{ mr: 4 }} size='large' variant='contained' type='Submit' disabled={activeStep < 4}>
+                <Button sx={{ mr: 4 }} size='large' variant='contained' type='Submit' disabled={activeStep < 3}>
                   Submit
                 </Button>
 
@@ -399,7 +432,7 @@ const SurveyFormOne = () => {
                   variant='contained'
                   type={typeSubmit}
                   onClick={handleNext}
-                  disabled={activeStep === 4}
+                  disabled={activeStep === 3}
                 >
                   Next
                 </Button>
