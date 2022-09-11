@@ -1,0 +1,4 @@
+.history/backend/.env*
+.history/*
+
+.gitignore
