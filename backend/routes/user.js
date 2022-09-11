@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 // Import Controller
-const { read, updateUserProfileOnboarding, handleSurveyResult, getLastSurveyResult } = require("../controllers/user");
+const { read, updateUserProfileOnboarding, handleSurveyResult, getLastSurveyResult, getAllSurveyResult } = require("../controllers/user");
 const { requireSignin, adminMiddleware } = require("../controllers/auth");
 
 // Import Validators
+
+router.get("/user/all-survey-result", requireSignin, getAllSurveyResult);
 
 router.get("/user/survey-result", requireSignin, getLastSurveyResult);
 router.get("/user/view/:id", requireSignin, read);
