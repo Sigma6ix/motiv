@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 // import  Link  from "next/link"
 import Button from '@mui/material/Button';
 
-import Hero from '../../styles/hero-style'
+import Hero from '../../../styles/hero-style'
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
