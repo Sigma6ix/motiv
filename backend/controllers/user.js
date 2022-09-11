@@ -144,3 +144,11 @@ exports.getLastSurveyResult = async (req, res) => {
     leadership: user.leadership,
   });
 }
+
+exports.getAllSurveyResult = async (req, res) => {
+  const users = await User.find({email: "gbk@gmail.com"}).select({
+    company_culture: 1, title_and_status: 1, compensation: 1, learning: 1, diversity: 1, leadership: 1, _id: 1, firstName: 1, lastName: 1, photoURL: 1, email: 1
+  });
+
+  return res.status(200).json([...users]);
+}
