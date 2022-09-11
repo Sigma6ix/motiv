@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Link from "../src/link/index"
+import Link from "../link/index"
 
 export const Button = styled.button.attrs(props => ({
   // we can define static props
